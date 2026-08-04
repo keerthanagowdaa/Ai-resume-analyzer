@@ -1,34 +1,31 @@
 import "./App.css";
 
+import Hero from "./components/Hero";
+import FeatureCard from "./components/Featurecard";
+
 function App() {
   return (
     <div className="container">
-      <div className="hero">
-        <h1>🤖 AI Resume Analyzer</h1>
-
-        <p>
-          Analyze your resume using Artificial Intelligence and improve your
-          chances of getting shortlisted.
-        </p>
-
-        <button>Upload Resume</button>
-      </div>
+      <Hero
+        title="🤖 AI Resume Analyzer"
+        description="Analyze your resume using Artificial Intelligence and improve your chances of getting shortlisted."
+      />
 
       <div className="features">
-        <div className="card">
-          <h3>📄 Resume Parsing</h3>
-          <p>Extract information from PDF resumes automatically.</p>
-        </div>
+        <FeatureCard
+          title="📄 Resume Parsing"
+          description="Extract information from PDF resumes automatically."
+        />
 
-        <div className="card">
-          <h3>🎯 ATS Score</h3>
-          <p>Measure resume compatibility with Applicant Tracking Systems.</p>
-        </div>
+        <FeatureCard
+          title="🎯 ATS Score"
+          description="Measure resume compatibility with Applicant Tracking Systems."
+        />
 
-        <div className="card">
-          <h3>🧠 Skill Extraction</h3>
-          <p>Identify technical and soft skills using NLP.</p>
-        </div>
+        <FeatureCard
+          title="🧠 Skill Extraction"
+          description="Identify technical and soft skills using NLP."
+        />
       </div>
     </div>
   );
