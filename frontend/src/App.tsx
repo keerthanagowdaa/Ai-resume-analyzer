@@ -1,10 +1,13 @@
 import "./App.css";
-
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import FeatureCard from "./components/Featurecard";
 
+
 function App() {
   return (
+    <>
+    <Navbar />
     <div className="container">
       <Hero
         title="🤖 AI Resume Analyzer"
@@ -28,6 +31,7 @@ function App() {
         />
       </div>
     </div>
+    </>
   );
 }
 
