@@ -1,6 +1,17 @@
+import { useState } from "react";
 import "./ResumeUpload.css";
 
 function ResumeUpload() {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedFile(event.target.files[0]);
+    }
+  };
+
   return (
     <div className="upload-container">
       <div className="upload-box">
@@ -15,11 +26,18 @@ function ResumeUpload() {
           id="resume"
           accept=".pdf,.doc,.docx"
           hidden
+          onChange={handleFileChange}
         />
 
         <label htmlFor="resume" className="browse-btn">
           Browse Files
         </label>
+
+        {selectedFile && (
+          <p className="file-name">
+            ✅ {selectedFile.name}
+          </p>
+        )}
 
         <small>Supported formats: PDF, DOC, DOCX</small>
       </div>
