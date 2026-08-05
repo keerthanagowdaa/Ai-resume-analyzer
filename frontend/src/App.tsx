@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import ResumeUpload from "./components/ResumeUpload";
 import FeatureCard from "./components/Featurecard";
 
 
@@ -13,6 +14,7 @@ function App() {
         title="🤖 AI Resume Analyzer"
         description="Analyze your resume using Artificial Intelligence and improve your chances of getting shortlisted."
       />
+      <ResumeUpload />
 
       <div className="features">
         <FeatureCard
