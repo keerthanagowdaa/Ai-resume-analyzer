@@ -6,6 +6,7 @@ function ResumeUpload() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [extractedText, setExtractedText] = useState("");
 
   const allowedExtensions = ["pdf", "doc", "docx"];
 
@@ -39,6 +40,7 @@ function ResumeUpload() {
     try {
       const response = await uploadResume(selectedFile);
       setMessage(response.message);
+      setExtractedText(response.extracted_text);
       setError("");
     } catch (err) {
       setError("Upload failed. Please try again.");
@@ -85,6 +87,12 @@ function ResumeUpload() {
           </p>
         )}
 
+        {extractedText && (
+          <div className="extracted-text">
+            <h3>Extracted Resume Text</h3>
+            <pre>{extractedText}</pre>
+          </div>
+        )}
         {error && (
           <p style={{ color: "red", marginTop: "15px" }}>
             {error}
