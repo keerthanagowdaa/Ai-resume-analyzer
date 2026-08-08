@@ -62,3 +62,40 @@
     margin-top: 15px;
     font-weight: bold;
 }
+
+.skills-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.skills-section h3 {
+  margin-bottom: 10px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  padding: 6px 12px;
+  border-radius: 15px;
+  background: #e8f0fe;
+  color: #1a4f8b;
+  font-size: 14px;
+}
+
+.education-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.education-section h3 {
+  margin-bottom: 10px;
+}
+
+.education-section p {
+  margin: 5px 0;
+  color: #555;
+}

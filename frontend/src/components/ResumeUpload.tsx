@@ -12,7 +12,8 @@ function ResumeUpload() {
   email: "",
   phone: "",
 });
-
+  const [skills, setSkills] = useState<string[]>([]);
+  const [education, setEducation] = useState<string[]>([]);
   const allowedExtensions = ["pdf", "doc", "docx"];
 
   const handleFileChange = (
@@ -51,6 +52,8 @@ function ResumeUpload() {
         email: response.email,
         phone: response.phone,
       });
+      setSkills(response.skills || []);
+      setEducation(response.education || []);
 
       setError("");
     } catch (err) {
@@ -106,6 +109,8 @@ function ResumeUpload() {
         )}
 
         {(resumeInfo.name || resumeInfo.email || resumeInfo.phone) && (
+
+          
           <div className="resume-info">
             <h3>Resume Information</h3>
 
@@ -122,7 +127,28 @@ function ResumeUpload() {
             </p>
           </div>
         )}
+        {skills.length > 0 && (
+          <div className="skills-section">
+            <h3>Skills</h3>
 
+            <div className="skills-list">
+              {skills.map((skill) => (
+                <span key={skill} className="skill-tag">
+                  {skill}
+                </span>
+      ))}
+            </div>
+          </div>
+)}
+        {education.length > 0 && (
+          <div className="education-section">
+            <h3>Education</h3>
+
+            {education.map((item, index) => (
+              <p key={index}>{item}</p>
+    ))}
+          </div>
+)}
 
 
         {error && (
