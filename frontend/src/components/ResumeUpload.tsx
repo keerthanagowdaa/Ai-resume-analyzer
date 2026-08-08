@@ -7,6 +7,11 @@ function ResumeUpload() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [extractedText, setExtractedText] = useState("");
+  const [resumeInfo, setResumeInfo] = useState({
+  name: "",
+  email: "",
+  phone: "",
+});
 
   const allowedExtensions = ["pdf", "doc", "docx"];
 
@@ -41,6 +46,12 @@ function ResumeUpload() {
       const response = await uploadResume(selectedFile);
       setMessage(response.message);
       setExtractedText(response.extracted_text);
+      setResumeInfo({
+        name: response.name,
+        email: response.email,
+        phone: response.phone,
+      });
+
       setError("");
     } catch (err) {
       setError("Upload failed. Please try again.");
@@ -93,6 +104,27 @@ function ResumeUpload() {
             <pre>{extractedText}</pre>
           </div>
         )}
+
+        {(resumeInfo.name || resumeInfo.email || resumeInfo.phone) && (
+          <div className="resume-info">
+            <h3>Resume Information</h3>
+
+            <p>
+              <strong>Name:</strong> {resumeInfo.name || "Not found"}
+            </p>
+
+            <p>
+              <strong>Email:</strong> {resumeInfo.email || "Not found"}
+            </p>
+
+            <p>
+              <strong>Phone:</strong> {resumeInfo.phone || "Not found"}
+            </p>
+          </div>
+        )}
+
+
+
         {error && (
           <p style={{ color: "red", marginTop: "15px" }}>
             {error}
