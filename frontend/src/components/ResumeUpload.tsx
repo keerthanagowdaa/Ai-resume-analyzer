@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./ResumeUpload.css";
+import ATSScore from "./ATSScore";
+import ATSFeedback from "./ATSFeedback";
 import { uploadResume } from "../services/api";
 
 function ResumeUpload() {
@@ -14,6 +16,7 @@ function ResumeUpload() {
 });
   const [skills, setSkills] = useState<string[]>([]);
   const [education, setEducation] = useState<string[]>([]);
+  const [atsScore, setAtsScore] = useState<number | null>(null);
   const allowedExtensions = ["pdf", "doc", "docx"];
 
   const handleFileChange = (
@@ -54,6 +57,7 @@ function ResumeUpload() {
       });
       setSkills(response.skills || []);
       setEducation(response.education || []);
+      setAtsScore(response.ats_score);
 
       setError("");
     } catch (err) {
@@ -148,7 +152,13 @@ function ResumeUpload() {
               <p key={index}>{item}</p>
     ))}
           </div>
-)}
+  )}
+        {atsScore !== null && (
+          <ATSScore score={atsScore} />
+        )}
+        {atsScore !== null && (
+          <ATSFeedback score={atsScore} />
+        )}
 
 
         {error && (

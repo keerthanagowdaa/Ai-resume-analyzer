@@ -1,0 +1,22 @@
+.ats-score {
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.ats-score h2 {
+  margin-bottom: 10px;
+}
+
+.score-number {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.ats-score p {
+  font-size: 18px;
+  font-weight: 600;
+}

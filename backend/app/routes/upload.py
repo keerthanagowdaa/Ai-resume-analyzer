@@ -10,6 +10,7 @@ from app.utils.resume_parser import (
 )
 from app.utils.skills_extractor import extract_skills
 from app.utils.education_extractor import extract_education
+from app.utils.ats_scorer import calculate_ats_score
 
 router = APIRouter(prefix="/api", tags=["Upload"])
 
@@ -41,6 +42,14 @@ async def upload_resume(file: UploadFile = File(...)):
     # Extract skills
     skills = extract_skills(extracted_text)
     education = extract_education(extracted_text)
+    ats_score = calculate_ats_score(
+    name,
+    email,
+    phone,
+    skills,
+    education,
+    extracted_text
+)
 
     return {
         "message": "Resume uploaded successfully!",
@@ -50,5 +59,6 @@ async def upload_resume(file: UploadFile = File(...)):
         "phone": phone,
         "skills": skills,
         "education": education,
+        "ats_score": ats_score,
         "extracted_text": extracted_text
     }

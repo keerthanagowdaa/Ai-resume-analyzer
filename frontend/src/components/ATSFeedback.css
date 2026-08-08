@@ -1,0 +1,15 @@
+.ats-feedback {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-align: left;
+}
+
+.ats-feedback h3 {
+  margin-bottom: 12px;
+}
+
+.ats-feedback p {
+  margin: 8px 0;
+}
