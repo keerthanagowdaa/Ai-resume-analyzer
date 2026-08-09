@@ -1,11 +1,14 @@
 import "./App.css";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ResumeUpload from "./components/ResumeUpload";
 import FeatureCard from "./components/Featurecard";
+import JobDescription from "./components/JobDescription";
 
 
 function App() {
+  const [resumeSkills, setResumeSkills] = useState<string[]>([]);
   return (
     <>
     <Navbar />
@@ -14,7 +17,8 @@ function App() {
         title="🤖 AI Resume Analyzer"
         description="Analyze your resume using Artificial Intelligence and improve your chances of getting shortlisted."
       />
-      <ResumeUpload />
+      <ResumeUpload onSkillsExtracted={setResumeSkills} />
+      <JobDescription resumeSkills={resumeSkills} />
 
       <div className="features">
         <FeatureCard

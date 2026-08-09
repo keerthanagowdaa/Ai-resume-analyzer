@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.routes.job_description import router as job_description_router
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes.upload import router as upload_router
 app = FastAPI(
@@ -28,3 +29,4 @@ def health():
     }
 
 app.include_router(upload_router)
+app.include_router(job_description_router)

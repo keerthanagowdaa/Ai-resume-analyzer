@@ -1,0 +1,45 @@
+.job-description-container {
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  text-align: left;
+}
+
+.job-description-container h2 {
+  margin-bottom: 8px;
+}
+
+.job-description-container p {
+  margin-bottom: 15px;
+}
+
+.job-description-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.character-count {
+  text-align: right;
+  font-size: 13px;
+}
+
+.analyze-job-btn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.analyze-job-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

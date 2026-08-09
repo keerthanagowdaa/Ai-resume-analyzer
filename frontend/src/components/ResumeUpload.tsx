@@ -4,7 +4,11 @@ import ATSScore from "./ATSScore";
 import ATSFeedback from "./ATSFeedback";
 import { uploadResume } from "../services/api";
 
-function ResumeUpload() {
+interface ResumeUploadProps {
+  onSkillsExtracted: (skills: string[]) => void;
+}
+
+function ResumeUpload({ onSkillsExtracted }: ResumeUploadProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -56,6 +60,7 @@ function ResumeUpload() {
         phone: response.phone,
       });
       setSkills(response.skills || []);
+      onSkillsExtracted(response.skills || []);
       setEducation(response.education || []);
       setAtsScore(response.ats_score);
 
